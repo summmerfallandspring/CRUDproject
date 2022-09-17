@@ -1,5 +1,6 @@
 package org.example;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class WordManager {
@@ -24,7 +25,7 @@ public class WordManager {
                 + "=> 원하는 메뉴는? ");
         return s.nextInt();
     }
-    public void start() {
+    public void start() throws IOException {
 
         wordCRUD.loadFile();
         while (true) {
@@ -39,11 +40,17 @@ public class WordManager {
             else if(menu == 1){
                 wordCRUD.listAll();
             }
+            else if(menu == 2){
+                wordCRUD.searchLevel();
+            }
             else if(menu == 5){
                 wordCRUD.updateItem();
             }
             else if(menu == 6){
                 wordCRUD.deleteItem();
+            }
+            else if(menu == 7){
+                wordCRUD.saveFile();
             }
         }
     }
